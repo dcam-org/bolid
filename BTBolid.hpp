@@ -31,31 +31,31 @@ struct BTVec2 {
 };
 
 struct BTWheelSet {
-    BTWheel LFront, RFront, 
-            LBack, RBack;
+    BTWheel lFront, rFront, 
+            lBack, rBack;
 };
 
 
 class BTBolidData {
 public:
     //get
-    BTWheelSet getWheels() {
+    BTWheelSet getWheels() const {
         return m_wheels;
     }
 
-    BTBattery getBattery() {
+    BTBattery getBattery() const {
         return m_battery;
     }
-    BTBreaks getBreaks() {
+    BTBreaks getBreaks() const {
         return m_breaks;
     }
-    BTVec2 getPos() {
+    BTVec2 getPos() const {
         return m_pos;
     }
-    BTVec2 getSpeed() {
+    BTVec2 getSpeed() const {
         return m_speed;
     }
-    float getTime() {
+    float getTime() const {
         return m_time;
     }
 
