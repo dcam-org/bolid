@@ -6,11 +6,11 @@
 
 class BTReciever 
 {
-    public:
+public:
 
     void recieve();
 
-    private:
+private:
     
     BTBolidData *m_bolid;
 };
