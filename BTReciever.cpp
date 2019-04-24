@@ -1,10 +1,5 @@
 #include "BTReciever.hpp"
-#include "BTDefines.hpp"
 
-
-#include <fcntl.h>
-#include <stdlib.h>
-#include <iostream>
 
 
 
@@ -13,7 +8,7 @@ void BTReciever::recieve(){
         std::cout << "Can\'t open FIFO for reading\n";
     }
 
-    size = read(m_fd, (void *)m_bolid, sizeof(BTBolidData));
+    read(m_fd, (void *)m_bolid, sizeof(BTBolidData));
     if (m_bolid == nullptr){
         std::cout << "Someone fucked up\nDidn't recieve any data\n";
     }

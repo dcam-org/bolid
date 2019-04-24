@@ -2,7 +2,11 @@
 #define BTRECIEVER_H
 
 #include "BTBolid.hpp"
+#include "BTDefines.hpp"
 #include <unistd.h>
+#include <fcntl.h>
+#include <stdlib.h>
+#include <iostream>
 
 
 class BTReciever 
@@ -15,7 +19,6 @@ private:
     
     BTBolidData *m_bolid;
     int m_fd;
-    size_t size;
 };
 
 #endif
