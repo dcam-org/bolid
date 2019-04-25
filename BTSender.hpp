@@ -14,7 +14,9 @@ public:
 
 	void setBolidData(BTBolidData *bolidData);
 	BTBolidData *getBolidData() const;
+	int getBolidFd();
 	BTSender();
+	~BTSender();
 	
 private:
 	BTBolidData *m_bolid;
