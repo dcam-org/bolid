@@ -9,9 +9,17 @@
 #include <iostream>
 
 
+
 class BTReciever 
 {
 public:
+
+/// Set/get
+
+    void setBolidData(BTBolidData *bolidData);
+    BTBolidData *getBolidData() const;
+
+/// Recieve function gets BTBolidData* from FIFO and sets m_bolid
 
     void recieve();
 
