@@ -1,5 +1,5 @@
-#ifndef BTRECIEVER_H
-#define BTRECIEVER_H
+#ifndef BTReceiveR_H
+#define BTReceiveR_H
 
 #include "BTBolid.hpp"
 #include "BTDefines.hpp"
@@ -10,7 +10,7 @@
 #include <assert.h>
 
 
-class BTReciever 
+class BTReceiver 
 {
 public:
 
@@ -24,9 +24,9 @@ public:
     void openFifo();
     void closeFifo();
 
-/// Recieve function gets BTBolidData* from FIFO and sets m_bolid
+/// Receive function gets BTBolidData* from FIFO and sets m_bolid
 
-    void recieve();
+    void receive();
 
 private:
     

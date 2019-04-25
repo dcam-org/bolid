@@ -1,9 +1,9 @@
-#include "BTReciever.hpp"
+#include "BTReceiver.hpp"
 
 
 
 
-void BTReciever::recieve()
+void BTReceiver::receive()
 {
     if((m_fd = open(BT_FIFO_NAME, O_RDONLY)) < 0)
     {
@@ -13,19 +13,19 @@ void BTReciever::recieve()
     size_t size = read(m_fd, (void *)m_bolid, sizeof(BTBolidData));
     if (m_bolid == nullptr)
     {
-        std::cout << "Someone fucked up\nDidn't recieve any data\n";
+        std::cout << "Someone fucked up\nDidn't receive any data\n";
     }
     assert(m_bolid);
     assert(size);
 
 }
 
-void BTReciever::setBolidData(BTBolidData *bolidData)
+void BTReceiver::setBolidData(BTBolidData *bolidData)
 {
     m_bolid = bolidData;
 }
 
-BTBolidData *BTReciever::getBolidData() const
+BTBolidData *BTReceiver::getBolidData() const
 {
     return m_bolid;
 }
