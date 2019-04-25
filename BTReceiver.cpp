@@ -5,10 +5,7 @@
 
 void BTReceiver::receive()
 {
-    if((m_fd = open(BT_FIFO_NAME, O_RDONLY)) < 0)
-    {
-        std::cout << "Can\'t open FIFO for reading\n";
-    }
+
 
     size_t size = read(m_fd, (void *)m_bolid, sizeof(BTBolidData));
     if (m_bolid == nullptr)
@@ -18,6 +15,19 @@ void BTReceiver::receive()
     assert(m_bolid);
     assert(size);
 
+}
+
+void BTReceiver::openFifo()
+{
+    if((m_fd = open(BT_FIFO_NAME, O_RDONLY)) < 0)
+    {
+        std::cout << "Can\'t open FIFO for reading\n";
+    }
+}
+
+void BTReceiver::closeFifo()
+{
+    close(m_fd);
 }
 
 void BTReceiver::setBolidData(BTBolidData *bolidData)
