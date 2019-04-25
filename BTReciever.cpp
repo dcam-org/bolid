@@ -15,7 +15,8 @@ void BTReciever::recieve()
     {
         std::cout << "Someone fucked up\nDidn't recieve any data\n";
     }
-
+    assert(m_bolid);
+    assert(size);
 
 }
 
