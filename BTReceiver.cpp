@@ -6,13 +6,8 @@
 void BTReceiver::receive()
 {
 
-
-    size_t size = read(m_fd, (void *)m_bolid, sizeof(BTBolidData));
-    if (m_bolid == nullptr)
-    {
-        std::cout << "Someone fucked up\nDidn't receive any data\n";
-    }
     assert(m_bolid);
+    size_t size = read(m_fd, (void *)m_bolid, sizeof(BTBolidData));
     assert(size);
 
 }
