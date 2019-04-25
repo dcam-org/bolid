@@ -4,6 +4,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include "BTDefines.hpp"
 
 
 class BTSender
@@ -13,6 +14,7 @@ public:
 
 	void setBolidData(BTBolidData *bolidData);
 	BTBolidData *getBolidData() const;
+	BTSender();
 	
 private:
 	BTBolidData *m_bolid;

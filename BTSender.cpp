@@ -12,6 +12,18 @@ void BTSender::setBolidData(BTBolidData *bolidData)
 	m_bolid = bolidData;
 }
 
+BTSender::BTSender()
+{
+	if( mknod(BT_FIFO_NAME, S_IFIFO | 0666, 0)<0 )
+	{
+		printf("cant create fifo \n");
+	}
+	if ( (m_fd = open(BT_FIFO_NAME ,O_WRONLY)) <0)
+	{
+		printf("cant open fifo\n");
+		_exit(-1);
+	}
+}
 
 BTBolidData *BTSender::getBolidData() const
 {
