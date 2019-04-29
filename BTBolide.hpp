@@ -1,16 +1,8 @@
-#ifndef __BTBOLID
-#define __BTBOLID
+#ifndef __BTBolide
+#define __BTBolide
 
 
 #include <string>
-
-
-const int BT_WHEELS_COUNT = 4;
-
-const int LEFT_TOP_WHEEL = 0;
-const int RIGHT_TOP_WHEEL = 1;
-const int LEFT_BOT_WHEEL = 2;
-const int RIGHT_BOT_WHEEL = 3;
 
 
 struct BTWheel {
@@ -36,13 +28,12 @@ struct BTWheelSet {
 };
 
 
-class BTBolidData {
+class BTBolideData {
 public:
     //get
     BTWheelSet getWheels() const {
         return m_wheels;
     }
-
     BTBattery getBattery() const {
         return m_battery;
     }
@@ -88,6 +79,7 @@ private:
     BTVec2 m_pos;
     BTVec2 m_speed;
     float m_time;
+
 };
 
 

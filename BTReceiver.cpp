@@ -7,7 +7,7 @@ void BTReceiver::receive()
 {
 
     assert(m_bolid);
-    size_t size = read(m_fd, (void *)m_bolid, sizeof(BTBolidData));
+    size_t size = read(m_fd, (void *)m_bolid, sizeof(BTBolideData));
     assert(size);
 
 }
@@ -25,12 +25,12 @@ void BTReceiver::closeFifo()
     close(m_fd);
 }
 
-void BTReceiver::setBolidData(BTBolidData *bolidData)
+void BTReceiver::setBolideData(BTBolideData *bolidData)
 {
     m_bolid = bolidData;
 }
 
-BTBolidData *BTReceiver::getBolidData() const
+BTBolideData *BTReceiver::getBolideData() const
 {
     return m_bolid;
 }

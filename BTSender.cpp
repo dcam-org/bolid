@@ -3,16 +3,16 @@
 
 void BTSender::send()
 {
-	write(m_fd, static_cast<void *>(m_bolid), sizeof(BTBolidData));
+	write(m_fd, static_cast<void *>(m_bolid), sizeof(BTBolideData));
 }
 
 
-void BTSender::setBolidData(BTBolidData *bolidData)
+void BTSender::setBolideData(BTBolideData *bolidData)
 {
 	m_bolid = bolidData;
 }
 
-int BTSender::getBolidFd()
+int BTSender::getBolideFd()
 {
 	return m_fd;
 }
@@ -33,10 +33,10 @@ BTSender::BTSender()
 
 BTSender::~BTSender()
 {
-	close(getBolidFd());
+	close(getBolideFd());
 }
 
-BTBolidData *BTSender::getBolidData() const
+BTBolideData *BTSender::getBolideData() const
 {
 	return m_bolid;
 }

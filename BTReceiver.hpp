@@ -1,7 +1,7 @@
 #ifndef BTReceiveR_H
 #define BTReceiveR_H
 
-#include "BTBolid.hpp"
+#include "BTBolide.hpp"
 #include "BTDefines.hpp"
 #include <unistd.h>
 #include <fcntl.h>
@@ -16,21 +16,21 @@ public:
 
 /// Set/get
 
-    void setBolidData(BTBolidData *bolidData);
-    BTBolidData *getBolidData() const;
+    void setBolideData(BTBolideData *bolidData);
+    BTBolideData *getBolideData() const;
 
 /// FIFO open/close functions
 
     void openFifo();
     void closeFifo();
 
-/// Receive function gets BTBolidData* from FIFO and sets m_bolid
+/// Receive function gets BTBolideData* from FIFO and sets m_bolid
 
     void receive();
 
 private:
     
-    BTBolidData *m_bolid;
+    BTBolideData *m_bolid;
     int m_fd;
 };
 
