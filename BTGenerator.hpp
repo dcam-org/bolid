@@ -8,8 +8,8 @@
 
 class BTGenerator {
 public:
-    BTBolideData* getData() {
-        return &data_;
+    BTBolideData getData() {
+        return data_;
     }
     void setData(BTBolideData data) {
         data_ = data;

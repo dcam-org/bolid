@@ -22,6 +22,10 @@ struct BTVec2 {
     int x, y;
 };
 
+struct BTVec2f {
+    float x, y;
+};
+
 struct BTWheelSet {
     BTWheel lFront, rFront, 
             lBack, rBack;
@@ -54,7 +58,6 @@ public:
     void setWheels(BTWheelSet whls) {
         m_wheels = whls;
     }
-
     void setBattery(BTBattery bt) {
         m_battery = bt;
     }
@@ -73,12 +76,12 @@ public:
 
 private:
     BTWheelSet m_wheels;
-    BTBattery m_battery;
-    BTBreaks m_breaks;
+    BTBattery  m_battery;
+    BTBreaks   m_breaks;
 
     BTVec2 m_pos;
     BTVec2 m_speed;
-    float m_time;
+    float  m_time;
 
 };
 
