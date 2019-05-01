@@ -3,11 +3,6 @@
 
 BTGenerator::BTGenerator() {
     pthread_mutex_init(&mutex, NULL);
-    /*
-        Allows thread to be cancelled immediately.
-    */
-    pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
-    pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
 }
 
 
@@ -51,6 +46,12 @@ bool BTGenerator::isRunning() {
 */
 void* BTGenerator::start_routine(void * classPtr) {
     auto trueClassPtr = static_cast<BTGenerator*>(classPtr);
+    /*
+        Allows thread to be cancelled immediately.
+    */
+    pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
+    pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
+
     while(true) {
         pthread_mutex_lock(&trueClassPtr->mutex);
         trueClassPtr->generate();
