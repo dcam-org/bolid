@@ -1,6 +1,65 @@
 #include "BTGenerator.hpp"
 
 
+BTGenerator::BTGenerator() {
+    pthread_mutex_init(&mutex, NULL);
+}
+
+
+BTGenerator::~BTGenerator() {
+    if (pthread_cancel(Gthread) != ESRCH)
+        pthread_join(Gthread, NULL);
+
+    pthread_mutex_destroy(&mutex);
+}
+
+
+void BTGenerator::run() {
+    pthread_create(&Gthread, 0, start_routine, this);
+}
+
+
+void BTGenerator::stop() {
+    pthread_cancel(Gthread);
+    pthread_join(Gthread, NULL);
+}
+
+
+BTBolideData BTGenerator::getData() {
+    return data_;
+}
+
+
+void BTGenerator::setData(BTBolideData data) {
+    data_ = data;
+}
+
+
+bool BTGenerator::isRunning() {
+    return running_;
+}
+
+
+/*
+    Calls generate() in separate thread periodically.
+    Data modifying procedure is transaction (mutex used).
+*/
+void* BTGenerator::start_routine(void * classPtr) {
+    auto trueClassPtr = static_cast<BTGenerator*>(classPtr);
+    while(true) {
+        pthread_mutex_lock(&trueClassPtr->mutex);
+        trueClassPtr->generate();
+        pthread_mutex_unlock(&trueClassPtr->mutex);
+        usleep(trueClassPtr->dt_);
+    }
+}
+
+
+void BTGenerator::setTimeStep(int dt) {
+    dt_ = dt; 
+}
+
+
 void BTGenerator::generate() {
     float coef1 = 0.001, 
           coef2 = 0.002, 
@@ -47,13 +106,3 @@ void BTGenerator::generate() {
     data_.setPos(tmp_pos);
     data_.setTime(tmp_time);
 }
-
-
-/*
-    TODO (?)
-    Calls generate() in separate thread periodically.
-*/
-void BTGenerator::run(int dt) {
-
-}
-
