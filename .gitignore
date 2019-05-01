@@ -1,5 +1,0 @@
-.vscode/
-.gitignore
-test.cpp
-*.out
-*.o
