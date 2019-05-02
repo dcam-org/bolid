@@ -9,13 +9,13 @@ const int DEFAULT_TIME_STEP_VAL = 10000;
 #include <pthread.h>
 #include <semaphore.h>
 #include <unistd.h>
-#include <iostream>
 
 
 class BTGenerator {
 public:
     BTGenerator();
     ~BTGenerator();
+    BTGenerator(BTGenerator& ) = delete;
     BTBolideData getData();
     void setData(BTBolideData data);
     void generate();

@@ -7,9 +7,7 @@ BTGenerator::BTGenerator() {
 
 
 BTGenerator::~BTGenerator() {
-    if (pthread_cancel(Gthread) != ESRCH)
-        pthread_join(Gthread, NULL);
-
+    pthread_join(Gthread, NULL);
     pthread_mutex_destroy(&mutex);
 }
 
