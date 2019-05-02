@@ -15,6 +15,7 @@ BTGenerator::~BTGenerator() {
 
 
 void BTGenerator::run() {
+    running_ = true;
     pthread_create(&Gthread, 0, start_routine, this);
 }
 
@@ -22,6 +23,7 @@ void BTGenerator::run() {
 void BTGenerator::stop() {
     pthread_cancel(Gthread);
     pthread_join(Gthread, NULL);
+    running_ = false;
 }
 
 
