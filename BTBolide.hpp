@@ -6,7 +6,7 @@
 
 
 struct BTWheel {
-    float pressure, temperature;
+    float pressure, temperature, m_hp;
 };
 
 struct BTBattery {
@@ -31,12 +31,19 @@ struct BTWheelSet {
             lBack, rBack;
 };
 
+struct BTPedalSet {
+    float gas, stop;
+};
+
 
 class BTBolideData {
 public:
     //get
     BTWheelSet getWheels() const {
         return m_wheels;
+    }
+    BTPedalSet getPedals() const {
+        return m_pedals;
     }
     BTBattery getBattery() const {
         return m_battery;
@@ -58,6 +65,9 @@ public:
     void setWheels(BTWheelSet whls) {
         m_wheels = whls;
     }
+    void setPedal(BTPedalSet pdls) {
+        m_pedals = pdls;
+    }
     void setBattery(BTBattery bt) {
         m_battery = bt;
     }
@@ -78,6 +88,7 @@ private:
     BTWheelSet m_wheels;
     BTBattery  m_battery;
     BTBreaks   m_breaks;
+    BTPedalSet m_pedals;
 
     BTVec2 m_pos;
     BTVec2 m_speed;
