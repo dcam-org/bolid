@@ -60,6 +60,12 @@ public:
     float getTime() const {
         return m_time;
     }
+    float getVelocity() const {
+        return m_velocity;
+    }
+    float getAcceleration() const {
+        return m_acceleration;
+    }
 
     //set
     void setWheels(BTWheelSet whls) {
@@ -83,6 +89,12 @@ public:
     void setTime(float t) {
         m_time = t;
     }
+    void setVelocity(float vlst) {
+        m_velocity = vlst;
+    }
+    void setAcceleration(float acc) {
+        m_acceleration = acc;
+    }
 
 private:
     BTWheelSet m_wheels;
@@ -93,6 +105,8 @@ private:
     BTVec2 m_pos;
     BTVec2 m_speed;
     float  m_time;
+    float  m_velocity;
+    float  m_acceleration;
 
 };
 
